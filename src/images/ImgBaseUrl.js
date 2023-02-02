@@ -1,0 +1,1 @@
+const ImgBaseUrl='http://openweathermap.org/img/wn/'
