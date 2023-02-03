@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext,useState } from 'react'
 import '../App.css'
 import search from '../images/search.png'
 import location from '../images/location.png'
@@ -22,7 +22,7 @@ export default function Home() {
             <div className={`${window.screen.availWidth > 576 ? 'container' : 'mx-4'}`} style={{ marginTop: 'calc(2rem + 1.5vw)' }}>
                 <div className="row">
                     <div className="col-lg-9">
-                        <p style={{ fontSize: "1.2rem", fontWeight: "700", color: 'rgba(29, 37, 64, 1)', marginBottom: ".2rem", marginTop: 'calc(1.5rem - 2vw)' }}><img src={location} style={{ width: '1.5rem', marginRight: '.5rem' }} /><span> {city}    , {state}</span></p>
+                        <p style={{ fontSize: "1.2rem", fontWeight: "700", color: 'rgba(29, 37, 64, 1)', marginBottom: ".2rem", marginTop: 'calc(1.5rem - 2vw)' }}><img src={location} style={{ width: '1.5rem', marginRight: '.5rem' }} alt=''/><span> {city}    , {state}</span></p>
                         <p className='mb-0' style={{ color: 'rgba(96, 96, 96, 1)', fontSize: '.9rem' }}>{lat} N & {lon} E</p>
                     </div>
                     <div className="col-lg-3 order-first order-lg-last">

@@ -7,7 +7,7 @@ import rainy from '../images/rain.png'
 
 export default function WeatherCard(props) {
     const data=props.data;
-    const {main,icon}=data?data.weather[0]:''
+    const {main}=data?data.weather[0]:''
     const {temp_max,temp_min,humidity}=data?data.main:""
     const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     const tempInF=(temp)=>{return  Math.ceil(((temp-273.15)*1.8)+32)}

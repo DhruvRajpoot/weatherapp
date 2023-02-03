@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const WeatherContext = createContext()
 export default WeatherContext;
@@ -47,6 +47,17 @@ export const WeatherProvider = ({ children }) => {
         })
     }
 
+    const [startDate,setStartDate]=useState('')
+    const historyData=async()=>{
+        // let url=`https://history.openweathermap.org/data/2.5/history/city?lat=${lat}&lon=${lon}&type=hour&start=${startDate}&cnt={cnt}&appid=${process.env.REACT_APP_API_KEY_2}`
+        // await axios.get(url).then((response)=>{
+        //     // setWeatherData(response)
+        //     console.log(response)
+        // }).catch((err)=>{
+        //     console.log(err)
+        // })
+    }
+
     useEffect(() => {
         findLatLon(city)
     }, [])
@@ -64,8 +75,11 @@ export const WeatherProvider = ({ children }) => {
         })
     }, [])
 
+    useEffect(()=>{
+        historyData()
+    },[startDate])
     return (
-        <WeatherContext.Provider value={{ lat, lon, city, state, findLatLon, findWeather, weatherData }}>
+        <WeatherContext.Provider value={{ lat, lon, city, state, findLatLon, findWeather, weatherData ,startDate,setStartDate}}>
             {children}
         </WeatherContext.Provider>
     )

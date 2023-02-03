@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react'
+import moment from 'moment';
 import WeatherContext from '../context/WeatherContext'
 import WeatherCard from './WeatherCard'
 
 export default function Weather() {
-    const {weatherData}=useContext(WeatherContext)
+    const {weatherData,startDate,setStartDate}=useContext(WeatherContext)
+
     const [array,setArray]=useState([])
     useEffect(()=>{
         setArray([])
@@ -23,7 +25,7 @@ export default function Weather() {
                 <div className={`col-${window.screen.availWidth > 992 ? '2' : '6'} fw-bold d-flex align-items-center mt-3`}>
                     <div>
                         <label htmlFor="date" style={{ fontSize: ".8rem", fontWeight: "initial" }}>Select Date:</label>
-                        <input type="date" name="date" id="" className='mb-2' style={{ background: "lightgrey", width: "8.5rem", borderRadius: '5px', padding: ".3rem .5rem" }} />
+                        <input type="date" name="date" id="" className='mb-2' style={{ background: "lightgrey", width: "8.5rem", borderRadius: '5px', padding: ".3rem .5rem" }} max={moment().format("YYYY-MM-DD")} onChange={(e)=>{setStartDate(e.target.value)}}/>
                         <p>High Temperature</p>
                         <p>Low Temperature</p>
                         <p>Humidity</p>
