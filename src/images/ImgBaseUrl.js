@@ -1,1 +1,2 @@
-const ImgBaseUrl='http://openweathermap.org/img/wn/'
+const ImgBaseUrl='http://openweathermap.org/img/wn/';
+export default ImgBaseUrl;
