@@ -48,12 +48,12 @@ export const WeatherProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        findWeather()
-    }, [lat])
-
-    useEffect(() => {
         findLatLon(city)
     }, [])
+    
+    useEffect(() => {
+        findWeather()
+    }, [lat])
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition((success) => {
