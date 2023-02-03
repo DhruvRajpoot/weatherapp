@@ -1,9 +1,22 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import WeatherContext from '../context/WeatherContext'
 import WeatherCard from './WeatherCard'
 
 export default function Weather() {
     const {weatherData}=useContext(WeatherContext)
+    const [array,setArray]=useState([])
+    useEffect(()=>{
+        setArray([])
+        for(let i=0;i<40;i=i+8){
+            setArray((prev)=>(
+                [
+                    ...prev,
+                    (weatherData.list?weatherData.list[i]:null)
+                ]
+            ))
+        }
+    },[weatherData])
+
     return (
         <>
             <div className="row">
@@ -19,9 +32,10 @@ export default function Weather() {
                     </div>
                 </div>
                 <div className={`col-${window.screen.availWidth > 992 ? '10' : '6'} cards`}>
-                    {(weatherData.list ? weatherData.list: []).map((ele, index) => {
+                    {
+                    array.map((ele, index) => {
                         return <div key={index} >
-                            <WeatherCard data={ele} sunrise={weatherData ? weatherData.city.sunrise : ''} sunset={weatherData ? weatherData.city.sunset : ''} />
+                            <WeatherCard data={ele} sunrise={weatherData.city ? weatherData.city.sunrise : ''} sunset={weatherData.city ? weatherData.city.sunset : ''} />
                         </div>
                     })
                     }

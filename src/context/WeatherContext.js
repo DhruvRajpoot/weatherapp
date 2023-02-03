@@ -50,7 +50,7 @@ export const WeatherProvider = ({ children }) => {
     useEffect(() => {
         findLatLon(city)
     }, [])
-    
+
     useEffect(() => {
         findWeather()
     }, [lat])
