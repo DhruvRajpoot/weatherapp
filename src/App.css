@@ -1,0 +1,26 @@
+.locationbtn:active{
+    transform: scale(0.9);
+}
+#search {
+    outline: none;
+    border: none;
+    padding: calc(.7rem - .3vw) .7rem;
+    border-radius: 5px;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .15);
+    font-size: .9rem;
+    font-style: italic;
+    width: 100%;
+    color: rgba(68, 68, 68, 1);
+}
+
+.cards {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-gap: 1rem;
+    grid-auto-flow: column;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
